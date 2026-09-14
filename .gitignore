@@ -1,0 +1,38 @@
+# dependencias
+node_modules/
+.pnpm-store/
+
+# builds
+dist/
+build/
+.astro/
+.angular/
+.output/
+*.tsbuildinfo
+
+# entorno y secretos
+.env
+.env.*
+!.env.example
+*.pem
+
+# supabase
+supabase/.branches/
+supabase/.temp/
+supabase/logs/
+
+# pruebas
+coverage/
+playwright-report/
+test-results/
+
+# editores y sistema
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+npm-debug.log*

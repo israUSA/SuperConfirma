@@ -1,0 +1,1133 @@
+<title>Brief SuperConfirma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+  :root {
+    --ground: #F4F6F3;
+    --surface: #FFFFFF;
+    --surface-2: #EAEFE9;
+    --ink: #10201A;
+    --ink-2: #3D4F46;
+    --ink-3: #6D7E75;
+    --line: #DBE3DB;
+    --line-strong: #BFCCC1;
+    --accent: #0B6E4F;
+    --accent-ink: #0B6E4F;
+    --accent-soft: #E1EFE8;
+    --risk: #A93C26;
+    --risk-soft: #F7E7E2;
+    --warn: #86610F;
+    --warn-soft: #F6EEDA;
+
+    --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+    --measure: 66ch;
+    --wide: 1020px;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0D1411;
+      --surface: #141D19;
+      --surface-2: #1B2621;
+      --ink: #E6EDE8;
+      --ink-2: #AEBEB5;
+      --ink-3: #7E8F86;
+      --line: #25312B;
+      --line-strong: #37463E;
+      --accent: #46C08C;
+      --accent-ink: #46C08C;
+      --accent-soft: #11291F;
+      --risk: #E4795E;
+      --risk-soft: #2C1813;
+      --warn: #D6A23F;
+      --warn-soft: #2A2113;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0D1411;
+    --surface: #141D19;
+    --surface-2: #1B2621;
+    --ink: #E6EDE8;
+    --ink-2: #AEBEB5;
+    --ink-3: #7E8F86;
+    --line: #25312B;
+    --line-strong: #37463E;
+    --accent: #46C08C;
+    --accent-ink: #46C08C;
+    --accent-soft: #11291F;
+    --risk: #E4795E;
+    --risk-soft: #2C1813;
+    --warn: #D6A23F;
+    --warn-soft: #2A2113;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 0 72px;
+  }
+
+  .col { max-width: var(--measure); }
+
+  p { margin: 0 0 1.05em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; }
+  em { font-style: italic; color: var(--ink-2); }
+
+  a { color: var(--accent-ink); text-underline-offset: 3px; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    margin: 0;
+    line-height: 1.12;
+    letter-spacing: -0.021em;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    padding-block: 56px 40px;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .masthead h1 {
+    font-size: clamp(42px, 9vw, 74px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    margin: 14px 0 0;
+  }
+
+  .masthead .deck {
+    font-size: clamp(19px, 2.4vw, 22px);
+    line-height: 1.45;
+    color: var(--ink-2);
+    margin-top: 20px;
+    max-width: 54ch;
+  }
+
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 26px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+
+  /* ---------- sections ---------- */
+
+  section { padding-block: 52px 8px; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+
+  .sec-head h2 {
+    font-size: clamp(27px, 4vw, 35px);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 34px 0 12px;
+  }
+
+  /* ---------- thesis ---------- */
+
+  .thesis {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.7vw, 34px);
+    font-weight: 500;
+    line-height: 1.26;
+    letter-spacing: -0.024em;
+    max-width: 22ch;
+    border-left: 3px solid var(--accent);
+    padding-left: 22px;
+    margin: 0 0 32px;
+  }
+  .thesis .hl { color: var(--accent-ink); }
+
+  /* ---------- data strip ---------- */
+
+  .strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--line-strong);
+    background: var(--surface);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .strip > div {
+    padding: 22px 20px;
+    border-right: 1px solid var(--line);
+  }
+  .strip > div:last-child { border-right: 0; }
+  .strip .num {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5.5vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    display: block;
+    line-height: 1;
+  }
+  .strip .lbl {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.35;
+    color: var(--ink-2);
+  }
+  .strip .best .num { color: var(--accent-ink); }
+  .strip .worst .num { color: var(--risk); }
+  .strip-note {
+    font-size: 14px;
+    color: var(--ink-3);
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    line-height: 1.5;
+  }
+
+  /* ---------- calculator ---------- */
+
+  .calc {
+    border: 1px solid var(--line-strong);
+    background: var(--surface);
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: minmax(230px, 0.85fr) 1.15fr;
+  }
+  .calc-inputs {
+    padding: 26px 24px;
+    border-right: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .calc-out { padding: 26px 24px; }
+
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 7px;
+  }
+  .field input, .field select {
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-variant-numeric: tabular-nums;
+    padding: 9px 11px;
+    border: 1px solid var(--line-strong);
+    border-radius: 2px;
+    background: var(--surface);
+    color: var(--ink);
+  }
+  .field input:focus-visible, .field select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  .ledger { display: flex; flex-direction: column; gap: 0; }
+  .ledger-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 9px 0;
+    border-bottom: 1px dotted var(--line-strong);
+    font-size: 15px;
+  }
+  .ledger-row .k { color: var(--ink-2); }
+  .ledger-row .v {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .ledger-row.neg .v { color: var(--risk); }
+  .ledger-row.pos .v { color: var(--accent-ink); }
+  .ledger-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 2px solid var(--ink);
+  }
+  .ledger-total .k {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+  }
+  .ledger-total .v {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent-ink);
+    line-height: 1;
+  }
+  .roi-line {
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+
+  /* ---------- alert ---------- */
+
+  .alert {
+    border: 1px solid var(--risk);
+    background: var(--risk-soft);
+    border-radius: 3px;
+    padding: 26px 24px;
+  }
+  .alert .eyebrow { color: var(--risk); }
+  .alert h3 {
+    margin: 10px 0 14px;
+    font-size: clamp(21px, 3vw, 26px);
+    color: var(--ink);
+  }
+  .alert p { color: var(--ink-2); }
+  .alert .col { max-width: 62ch; }
+
+  .consequences {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line-strong);
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    margin-top: 22px;
+  }
+  .consequences > div {
+    background: var(--surface);
+    padding: 20px;
+  }
+  .consequences h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .consequences p { font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+
+  /* ---------- tables ---------- */
+
+  .tbl-wrap { overflow-x: auto; border: 1px solid var(--line-strong); border-radius: 3px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 15px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+    background: var(--surface-2);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td .m { font-family: var(--font-mono); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+
+  .pill {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .pill.yes { background: var(--accent-soft); color: var(--accent-ink); }
+  .pill.no  { background: var(--risk-soft); color: var(--risk); }
+  .pill.mid { background: var(--warn-soft); color: var(--warn); }
+
+  /* ---------- differentiators ---------- */
+
+  .diffs { display: flex; flex-direction: column; gap: 2px; }
+  .diff {
+    display: grid;
+    grid-template-columns: 46px 1fr 120px;
+    gap: 18px;
+    align-items: start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .diff:first-child { border-top: 1px solid var(--line-strong); }
+  .diff-rank {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-3);
+    padding-top: 3px;
+    font-variant-numeric: tabular-nums;
+  }
+  .diff h4 { font-size: 17px; font-weight: 600; margin-bottom: 5px; }
+  .diff p { font-size: 15px; color: var(--ink-2); margin: 0; line-height: 1.5; }
+  .diff.lead { background: var(--accent-soft); margin-inline: -16px; padding-inline: 16px; border-radius: 3px; }
+  .diff.lead h4 { color: var(--accent-ink); }
+
+  .moat { display: flex; flex-direction: column; gap: 5px; padding-top: 3px; }
+  .moat-bar { display: flex; gap: 3px; }
+  .moat-bar span {
+    height: 6px; width: 16px;
+    background: var(--line-strong);
+    border-radius: 1px;
+  }
+  .moat-bar span.on { background: var(--accent); }
+  .moat-lbl {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  /* ---------- whatsapp copy test ---------- */
+
+  .ab {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+  .chat {
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    background: var(--surface-2);
+    padding: 18px;
+  }
+  .chat-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .chat-head .tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .chat-head .rate {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .chat.bad .tag, .chat.bad .rate { color: var(--risk); }
+  .chat.good .tag, .chat.good .rate { color: var(--accent-ink); }
+
+  .bubble {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px 12px 12px 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .bubble p { margin-bottom: 0.7em; }
+  .qr { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .qr span {
+    flex: 1 1 auto;
+    text-align: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    padding: 7px 10px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-ink);
+    background: var(--surface);
+  }
+  .chat-why { font-size: 14px; color: var(--ink-3); margin-top: 12px; line-height: 1.45; }
+
+  /* ---------- decisions ---------- */
+
+  .decisions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .dec {
+    border: 1px solid var(--line-strong);
+    border-top: 3px solid var(--accent);
+    background: var(--surface);
+    border-radius: 3px;
+    padding: 22px 20px;
+  }
+  .dec .code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+  }
+  .dec h4 { font-size: 18px; font-weight: 600; margin: 8px 0 10px; }
+  .dec p { font-size: 15px; color: var(--ink-2); margin-bottom: 14px; line-height: 1.5; }
+  .dec .rec {
+    border-top: 1px dotted var(--line-strong);
+    padding-top: 12px;
+    font-size: 14.5px;
+  }
+  .dec .rec b { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); display: block; margin-bottom: 4px; }
+
+  /* ---------- roadmap ---------- */
+
+  .phases { display: flex; flex-direction: column; }
+  .phase {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 22px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+  }
+  .phase:last-child { border-bottom: 1px solid var(--line); }
+  .phase-n {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    padding-top: 3px;
+  }
+  .phase-n b { display: block; color: var(--accent-ink); font-size: 15px; letter-spacing: 0; }
+  .phase h4 { font-size: 17px; font-weight: 600; margin-bottom: 5px; }
+  .phase p { font-size: 15px; color: var(--ink-2); margin: 0; line-height: 1.5; }
+
+  /* ---------- footer ---------- */
+
+  .foot {
+    margin-top: 56px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line-strong);
+    font-size: 14.5px;
+    color: var(--ink-3);
+  }
+  .foot code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 2px;
+    color: var(--ink-2);
+  }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 860px) {
+    .calc { grid-template-columns: 1fr; }
+    .calc-inputs { border-right: 0; border-bottom: 1px solid var(--line); }
+    .ab { grid-template-columns: 1fr; }
+    .decisions { grid-template-columns: 1fr; }
+    .consequences { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .strip { grid-template-columns: 1fr; }
+    .strip > div { border-right: 0; border-bottom: 1px solid var(--line); }
+    .strip > div:last-child { border-bottom: 0; }
+    .diff { grid-template-columns: 30px 1fr; gap: 12px; }
+    .moat { grid-column: 2; flex-direction: row; align-items: center; gap: 10px; }
+    .phase { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">Brief estratégico · Investigación previa</div>
+    <h1>SuperConfirma</h1>
+    <p class="deck">Sistema de agendamiento y confirmación para clínicas, restaurantes y
+      servicios: embebible en landing pages, conectable por API y con WhatsApp como canal central.</p>
+    <div class="masthead-meta">
+      <span>14 septiembre 2026</span>
+      <span>Estado: pre-desarrollo</span>
+      <span>Método: spec-driven</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head"><div class="eyebrow">01 · La tesis</div></div>
+
+    <p class="thesis">No vendas <span class="hl">agenda</span>.<br>Vende <span class="hl">asistencia</span>.</p>
+
+    <div class="col">
+      <p>Hay decenas de plataformas que resuelven <em>agendar</em>. Solo AgendaPro tiene más de
+      20.000 negocios en LatAm, con ficha clínica, POS, inventario y app móvil. Competir de
+      frente con "otra agenda online" es una guerra perdida.</p>
+      <p>El hueco está en otro lado: <strong>la cita que se agenda y no ocurre</strong>. Los
+      datos son consistentes en la literatura médica y en la industria.</p>
+    </div>
+
+    <div class="strip" style="margin-top:26px">
+      <div class="worst">
+        <span class="num">23,1%</span>
+        <span class="lbl">no asiste cuando no recibe ningún recordatorio</span>
+      </div>
+      <div>
+        <span class="num">17,3%</span>
+        <span class="lbl">con recordatorio automático</span>
+      </div>
+      <div class="best">
+        <span class="num">13,6%</span>
+        <span class="lbl">cuando además alguien llama por teléfono</span>
+      </div>
+    </div>
+    <p class="strip-note">Reducción reportada: 28–60 % según canales. Un segundo toque diario sobre
+      el recordatorio semanal suma otro +26 % de confirmación.</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">02 · La economía</div>
+      <h2>Cuánto vale esto para un negocio</h2>
+    </div>
+    <div class="col"><p>Los números de abajo son el argumento de venta completo. Ajústalos al
+      cliente que tengas enfrente — está pensado para usarse en una reunión.</p></div>
+
+    <div class="calc" style="margin-top:22px">
+      <div class="calc-inputs">
+        <div class="field">
+          <label for="c-citas">Citas agendadas al mes</label>
+          <input id="c-citas" type="number" min="1" max="20000" step="10" value="400">
+        </div>
+        <div class="field">
+          <label for="c-ticket">Ticket promedio (USD)</label>
+          <input id="c-ticket" type="number" min="1" max="5000" step="1" value="35">
+        </div>
+        <div class="field">
+          <label for="c-ns">Inasistencia actual (%)</label>
+          <input id="c-ns" type="number" min="1" max="60" step="1" value="20">
+        </div>
+        <div class="field">
+          <label for="c-plan">Plan</label>
+          <select id="c-plan">
+            <option value="29">Esencial · $29/mes</option>
+            <option value="69" selected>Pro · $69/mes</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-out">
+        <div class="ledger">
+          <div class="ledger-row neg">
+            <span class="k">Se pierde hoy por inasistencia</span>
+            <span class="v" id="o-perdido">—</span>
+          </div>
+          <div class="ledger-row pos">
+            <span class="k">Se evita con confirmación <span class="m" style="color:var(--ink-3)">(−40 %)</span></span>
+            <span class="v" id="o-ahorro">—</span>
+          </div>
+          <div class="ledger-row pos">
+            <span class="k">Se recupera revendiendo cupos <span class="m" style="color:var(--ink-3)">(30 %)</span></span>
+            <span class="v" id="o-rescate">—</span>
+          </div>
+          <div class="ledger-row neg">
+            <span class="k">Costo del plan + mensajes de WhatsApp</span>
+            <span class="v" id="o-costo">—</span>
+          </div>
+        </div>
+        <div class="ledger-total">
+          <span class="k">Ganancia neta mensual</span>
+          <span class="v" id="o-neto">—</span>
+        </div>
+        <p class="roi-line" id="o-roi">—</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">03 · Urgente</div>
+    </div>
+    <div class="alert">
+      <div class="eyebrow">Faltan 16 días</div>
+      <h3>El 1 de octubre de 2026 WhatsApp deja de ser gratis dentro de la ventana de 24 h</h3>
+      <div class="col">
+        <p>Meta pasa a cobrar por mensaje: las <strong>plantillas de utilidad</strong>
+        (confirmaciones y recordatorios) se cobran también dentro de la ventana de servicio,
+        y los <strong>mensajes de servicio</strong> pasan a cobrarse con un tier gratuito de
+        1.000 al mes <em>por número de teléfono de negocio</em>.</p>
+        <p>Órdenes de magnitud: ~$0,0008 en Colombia, ~$0,0115 en México. Hay descuentos por
+        volumen. Las tarifas exactas de Ecuador y Perú hay que bajarlas del rate card oficial
+        en WhatsApp Manager antes de fijar precios de venta.</p>
+      </div>
+      <div class="consequences">
+        <div>
+          <h4>Medir el costo por cliente desde el día 1</h4>
+          <p>Cada mensaje enviado se registra con categoría, país, costo estimado y a qué
+          reserva pertenece. Sin eso el margen se evapora en silencio y no se pueden facturar
+          excedentes.</p>
+        </div>
+        <div>
+          <h4>Un número de WhatsApp por negocio</h4>
+          <p>El tier de 1.000 mensajes gratis es por número: con uno compartido, veinte
+          clientes lo agotan en días. Además el cliente final ve el número de <em>su</em>
+          negocio, y un cliente que genere reportes no arrastra a los demás.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">04 · El mercado</div>
+      <h2>Contra quién se compite, y por dónde está abierto</h2>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Jugador</th><th>Alcance</th><th>Precio</th><th>Dónde está abierto</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>AgendaPro</strong></td>
+            <td>20.000+ negocios LatAm</td>
+            <td class="m">desde $19/usuario</td>
+            <td>Precio por usuario que escala feo; confirmación básica; sin capa de agencia</td>
+          </tr>
+          <tr>
+            <td><strong>Reservo</strong></td>
+            <td>500+ clínicas (Chile)</td>
+            <td class="m">$30–50/mes</td>
+            <td>Muy Chile-céntrico, producto pesado, no publica precios</td>
+          </tr>
+          <tr>
+            <td><strong>CoverManager</strong></td>
+            <td>36.000+ restaurantes</td>
+            <td class="m">por cotización</td>
+            <td>Gama alta; el restaurante medio de LatAm sigue en cuaderno y WhatsApp</td>
+          </tr>
+          <tr>
+            <td><strong>Calendly / Cal.com</strong></td>
+            <td>Global</td>
+            <td class="m">$0–16/usuario</td>
+            <td>Pensado para 1:1 remoto, no para negocio local con recepción</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Lo que la gente odia del software que ya usa</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Queja recurrente</th><th>Respuesta de SuperConfirma</th></tr></thead>
+        <tbody>
+          <tr><td>"Automatiza la reserva pero los walk-ins se siguen manejando a mano"</td><td>Cerrar el ciclo: reserva → confirmación → llegada → no-show → rescate</td></tr>
+          <tr><td>"El precio por profesional sube más rápido de lo esperado"</td><td>Precio por local, no por usuario</td></tr>
+          <tr><td>"La integración no funciona como prometieron"</td><td>Webhooks y API públicos de primera clase, en todos los planes</td></tr>
+          <tr><td>"Contratos largos con poca flexibilidad"</td><td>Mes a mes y exportación total de datos</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">05 · Diferenciación</div>
+      <h2>Lo que no tiene nadie más</h2>
+    </div>
+    <div class="col"><p>El criterio no es "qué función falta", sino <strong>cuánto cuesta
+      copiarla</strong>. Una función se clona en un mes; un efecto de red, no.</p></div>
+
+    <div class="diffs" style="margin-top:26px">
+
+      <div class="diff lead">
+        <div class="diff-rank">01</div>
+        <div>
+          <h4>Confirm Score — red de reputación de asistencia</h4>
+          <p>Un puntaje de riesgo de no-show por teléfono, calculado con el comportamiento
+          agregado de todos los negocios de la red. Cada cliente nuevo mejora el producto para
+          todos los demás: un competidor que arranca de cero no puede alcanzarlo con dinero.
+          Se comparte el puntaje derivado, nunca el historial crudo.</p>
+        </div>
+        <div class="moat">
+          <div class="moat-bar"><span class="on"></span><span class="on"></span><span class="on"></span></div>
+          <div class="moat-lbl">Efecto de red</div>
+        </div>
+      </div>
+
+      <div class="diff">
+        <div class="diff-rank">02</div>
+        <div>
+          <h4>Depósito dinámico según riesgo</h4>
+          <p>Los demás ofrecen "pedir anticipo": sí o no, igual para todos, y eso ahuyenta a
+          los buenos clientes. Aquí se pide solo cuando el score lo amerita o el horario es
+          premium. Monetiza el score y quita fricción donde no hace falta.</p>
+        </div>
+        <div class="moat">
+          <div class="moat-bar"><span class="on"></span><span class="on"></span><span></span></div>
+          <div class="moat-lbl">Depende del 01</div>
+        </div>
+      </div>
+
+      <div class="diff">
+        <div class="diff-rank">03</div>
+        <div>
+          <h4>Rescate de cupo automático</h4>
+          <p>Alguien cancela a las 17:04 para mañana. En un minuto el sistema le ofrece el
+          hueco por WhatsApp a los cinco mejores candidatos a la vez — carrera, no cola — y el
+          primero en responder se lo lleva, con retención atómica de 10 minutos. Esta función
+          paga la suscripción sola.</p>
+        </div>
+        <div class="moat">
+          <div class="moat-bar"><span class="on"></span><span class="on"></span><span></span></div>
+          <div class="moat-lbl">Difícil de hacer bien</div>
+        </div>
+      </div>
+
+      <div class="diff">
+        <div class="diff-rank">04</div>
+        <div>
+          <h4>Reagendamiento masivo en un clic</h4>
+          <p>La doctora se enferma el martes y tiene 18 citas. Hoy eso son dos horas de
+          teléfono. Aquí: bloquear el día, ofrecer horarios alternativos por WhatsApp a las 18
+          personas, y ver en el panel quién se reubicó solo y a quién hay que llamar.</p>
+        </div>
+        <div class="moat">
+          <div class="moat-bar"><span class="on"></span><span class="on"></span><span></span></div>
+          <div class="moat-lbl">Nadie lo automatiza</div>
+        </div>
+      </div>
+
+      <div class="diff">
+        <div class="diff-rank">05</div>
+        <div>
+          <h4>Escalera de confirmación con A/B de mensajes</h4>
+          <p>La secuencia se adapta al riesgo y se detiene apenas el cliente confirma. Encima,
+          el sistema prueba dos redacciones y se queda con la que más confirma — y va
+          acumulando una biblioteca de plantillas ganadoras por rubro.</p>
+        </div>
+        <div class="moat">
+          <div class="moat-bar"><span class="on"></span><span></span><span></span></div>
+          <div class="moat-lbl">Datos acumulados</div>
+        </div>
+      </div>
+
+      <div class="diff">
+        <div class="diff-rank">06</div>
+        <div>
+          <h4>Modo Agencia de verdad</h4>
+          <p>Administrar N negocios desde un panel, con marca, dominio y precio propios. Es tu
+          caso de uso y a la vez tu canal: cada agencia y cada freelancer de landing pages se
+          convierte en un vendedor. Casi ninguna plataforma lo tiene bien resuelto.</p>
+        </div>
+        <div class="moat">
+          <div class="moat-bar"><span class="on"></span><span class="on"></span><span></span></div>
+          <div class="moat-lbl">Canal, no función</div>
+        </div>
+      </div>
+
+      <div class="diff">
+        <div class="diff-rank">07</div>
+        <div>
+          <h4>Panel "Dinero Recuperado"</h4>
+          <p>Lo primero que se ve al entrar no es un calendario: es cuánto dinero salvó el
+          sistema este mes. Copiable, sí — pero mientras nadie lo haga, es lo que elimina la
+          duda al renovar.</p>
+        </div>
+        <div class="moat">
+          <div class="moat-bar"><span class="on"></span><span></span><span></span></div>
+          <div class="moat-lbl">Copiable, pero vende</div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>El detalle que casi nadie trata como producto: el texto</h3>
+    <div class="col"><p>Un ensayo A/B en entorno hospitalario midió estas dos redacciones del
+      mismo recordatorio. La diferencia no es de diseño ni de tecnología — es de palabras.</p></div>
+
+    <div class="ab" style="margin-top:20px">
+      <div class="chat bad">
+        <div class="chat-head">
+          <span class="tag">Versión neutra</span>
+          <span class="rate">21,1%</span>
+        </div>
+        <div class="bubble">
+          <p>Recordatorio: tiene una cita el 15/09 a las 10:00.</p>
+        </div>
+        <p class="chat-why">Informa. No pide nada, no cuesta nada faltar, y cancelar implica
+        llamar.</p>
+      </div>
+
+      <div class="chat good">
+        <div class="chat-head">
+          <span class="tag">Versión con compromiso</span>
+          <span class="rate">14,2%</span>
+        </div>
+        <div class="bubble">
+          <p>Hola María 👋 Te guardamos el turno de mañana martes 15 a las 10:00 con la Dra. Pérez.</p>
+          <p>Si no puedes venir, avísanos ahora y se lo damos a otro paciente que está esperando.</p>
+          <div class="qr">
+            <span>✅ Confirmo</span>
+            <span>🔄 Cambiar hora</span>
+            <span>❌ No puedo</span>
+          </div>
+        </div>
+        <p class="chat-why">Compromiso ("te guardamos"), escasez social ("otro paciente está
+        esperando") y salida fácil: cancelar es un botón, no una llamada incómoda.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">06 · Stack</div>
+      <h2>Qué confirmo de tu propuesta y qué matizo</h2>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Capa</th><th>Recomendación</th><th></th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Panel de administración</td>
+            <td><strong>Angular + Tailwind</strong></td>
+            <td><span class="pill yes">Confirmo</span></td>
+            <td>App privada tras login, formularios complejos. El bundle no afecta SEO ni conversión.</td>
+          </tr>
+          <tr>
+            <td>Widget público de reserva</td>
+            <td><strong>Preact / Svelte / Astro</strong></td>
+            <td><span class="pill no">Matizo</span></td>
+            <td>Va dentro de landings de tus clientes: cada KB golpea el LCP y la conversión. 10–30 KB contra 150–250 KB de Angular.</td>
+          </tr>
+          <tr>
+            <td>Base de datos y auth</td>
+            <td><strong>Supabase (Postgres)</strong></td>
+            <td><span class="pill yes">Confirmo</span></td>
+            <td>RLS, Auth, Storage, pg_cron y pgmq. Ahorra meses. El lock-in es bajo: debajo hay Postgres puro.</td>
+          </tr>
+          <tr>
+            <td>Acceso público a datos</td>
+            <td><strong>API propia delante de Supabase</strong></td>
+            <td><span class="pill mid">Crítico</span></td>
+            <td>El flujo de reserva es anónimo: RLS no tiene sobre qué decidir. Exponer PostgREST al widget es el error clásico.</td>
+          </tr>
+          <tr>
+            <td>WhatsApp</td>
+            <td><strong>Cloud API directo de Meta</strong></td>
+            <td><span class="pill yes">Sugiero</span></td>
+            <td>Cero markup. 360dialog (~€49 fijos) recién conviene sobre 10.000 msg/mes. Nunca APIs no oficiales: bloquean el número.</td>
+          </tr>
+          <tr>
+            <td>Anti doble reserva</td>
+            <td><strong>EXCLUDE USING gist</strong></td>
+            <td><span class="pill mid">Crítico</span></td>
+            <td>Postgres hace físicamente imposible el solape, sin locks ni race conditions. Con índice parcial, o las canceladas siguen bloqueando.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">07 · Decisiones</div>
+      <h2>Cuatro respuestas que desbloquean el desarrollo</h2>
+    </div>
+
+    <div class="decisions">
+      <div class="dec">
+        <div class="code">D-01</div>
+        <h4>¿Qué rubro arranca?</h4>
+        <p>Restaurante y clínica no son el mismo producto: uno asigna profesionales con
+        capacidad 1, el otro combina mesas en turnos. Hacer los dos a la vez retrasa el MVP
+        al menos seis semanas.</p>
+        <div class="rec"><b>Recomendación</b>Citas con profesional — clínicas, estética,
+        barbería, veterinaria, talleres. Un solo modelo cubre cuatro rubros, y es la base
+        sobre la que después se construyen los restaurantes.</div>
+      </div>
+
+      <div class="dec">
+        <div class="code">D-02</div>
+        <h4>¿Qué país primero?</h4>
+        <p>Define moneda, pasarela, zona horaria, tarifa de WhatsApp, ley de datos y hasta el
+        tono de los mensajes. Stripe no opera en Ecuador; ahí se usa Kushki o PayPhone.</p>
+        <div class="rec"><b>Recomendación</b>Tu país, donde ya tienes clientes de landing pages
+        a los que puedes visitar. Expandir después, con el producto probado.</div>
+      </div>
+
+      <div class="dec">
+        <div class="code">D-03</div>
+        <h4>¿Número de WhatsApp compartido o propio?</h4>
+        <p>Compartido: alta inmediata, pero tu marca en los mensajes, tier gratuito
+        compartido y el riesgo de que un cliente arrastre a los demás. Propio: días de
+        trámite con Meta, pero aislado y con la marca del negocio.</p>
+        <div class="rec"><b>Recomendación</b>Híbrido: compartido en prueba y plan básico,
+        propio desde el plan Pro vía Embedded Signup.</div>
+      </div>
+
+      <div class="dec">
+        <div class="code">D-04</div>
+        <h4>¿Autoservicio o servicio gestionado?</h4>
+        <p>Cambia el producto entero: onboarding sin fricción y cobro con tarjeta, o menos
+        interfaz y más configuración manual con mayor margen por cliente.</p>
+        <div class="rec"><b>Recomendación</b>Operar como servicio al inicio — tú configuras a
+        tus primeros clientes — pero con la arquitectura del autoservicio desde el día 1, para
+        no reescribir después.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">08 · El camino</div>
+      <h2>Orden propuesto</h2>
+    </div>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-n"><b>Fase 0</b>1–2 semanas</div>
+        <div>
+          <h4>Decisiones y especificación</h4>
+          <p>Responder las cuatro decisiones, escribir la constitución del proyecto y la spec
+          del MVP. Iniciar la verificación de Meta Business en paralelo: tarda días y bloquea
+          cualquier prueba real.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-n"><b>Fase 1</b>4–6 semanas</div>
+        <div>
+          <h4>MVP que un negocio real pueda usar</h4>
+          <p>Agenda de profesional, página pública, widget embebible, confirmación por
+          WhatsApp y panel básico con el marcador de dinero recuperado.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-n"><b>Fase 2</b>3–4 semanas</div>
+        <div>
+          <h4>Lo que genera ingreso al cliente</h4>
+          <p>Rescate de cupo, lista de espera, reagendamiento masivo, webhooks firmados y API
+          pública documentada.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-n"><b>Fase 3</b>3–4 semanas</div>
+        <div>
+          <h4>El foso</h4>
+          <p>Confirm Score, depósitos dinámicos y Modo Agencia. Requiere 50–100 negocios
+          activos para que el score tenga sentido, y revisión legal antes de activarlo.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-n"><b>Fase 4</b>abierta</div>
+        <div>
+          <h4>Restaurantes</h4>
+          <p>Mesas combinables, turnos, walk-ins y plano de salón. Un producto dentro del
+          producto: solo con la base anterior sólida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Investigación completa en el repositorio: mercado y competencia, WhatsApp y costos,
+    modelo de dominio, stack y arquitectura, embed/API/webhooks, diferenciadores, y negocio
+    y marco legal. Las decisiones abiertas están en <code>docs/decisiones-abiertas.md</code>.</p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var f = new Intl.NumberFormat('es-EC', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    var ids = ['c-citas', 'c-ticket', 'c-ns', 'c-plan'];
+    var els = {};
+    ids.forEach(function (id) { els[id] = document.getElementById(id); });
+
+    var out = {
+      perdido: document.getElementById('o-perdido'),
+      ahorro: document.getElementById('o-ahorro'),
+      rescate: document.getElementById('o-rescate'),
+      costo: document.getElementById('o-costo'),
+      neto: document.getElementById('o-neto'),
+      roi: document.getElementById('o-roi')
+    };
+
+    function num(el, fallback, min, max) {
+      var v = parseFloat(el.value);
+      if (!isFinite(v)) return fallback;
+      return Math.min(max, Math.max(min, v));
+    }
+
+    function render() {
+      var citas = num(els['c-citas'], 400, 1, 20000);
+      var ticket = num(els['c-ticket'], 35, 1, 5000);
+      var ns = num(els['c-ns'], 20, 1, 60) / 100;
+      var plan = parseFloat(els['c-plan'].value);
+
+      var perdidasHoy = citas * ns;
+      var perdidasNuevas = perdidasHoy * 0.6;          // reducción conservadora del 40 %
+      var ahorro = (perdidasHoy - perdidasNuevas) * ticket;
+      var rescate = perdidasNuevas * 0.30 * ticket;    // 30 % de los huecos se revenden
+      var mensajes = citas * 3 * 0.01;                 // 3 mensajes por cita
+      var costo = plan + mensajes;
+      var neto = ahorro + rescate - costo;
+      var roi = (ahorro + rescate) / costo;
+
+      out.perdido.textContent = '−' + f.format(perdidasHoy * ticket);
+      out.ahorro.textContent = '+' + f.format(ahorro);
+      out.rescate.textContent = '+' + f.format(rescate);
+      out.costo.textContent = '−' + f.format(costo);
+      out.neto.textContent = f.format(neto);
+      out.roi.textContent = 'Retorno ' + roi.toFixed(1).replace('.', ',') + '× · ' +
+        Math.round(perdidasHoy) + ' citas perdidas al mes hoy, ' +
+        Math.round(perdidasNuevas) + ' después · ' +
+        f.format(mensajes) + ' de mensajes de WhatsApp';
+    }
+
+    ids.forEach(function (id) {
+      els[id].addEventListener('input', render);
+      els[id].addEventListener('change', render);
+    });
+    render();
+  })();
+</script>
