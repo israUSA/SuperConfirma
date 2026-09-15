@@ -57,7 +57,8 @@ web**, sin mandarlos a una plataforma de terceros con otra marca.
 - Panel de resultados ("dinero recuperado")
 - Webhooks salientes firmados y exportación CSV
 - Medición de mensajes y costos por negocio
-- **Los dos rubros**: citas con profesional y reservas de mesa
+- **Rubro v1: citas con profesional** (clínicas, estética, barbería, veterinaria, talleres).
+  El núcleo ya soporta reservas de mesa (P13); se activa en v2 sin tocar el modelo
 
 ### Fuera del MVP (y por qué)
 
@@ -70,6 +71,7 @@ web**, sin mandarlos a una plataforma de terceros con otra marca.
 | Unión automática de mesas | Problema de optimización; en v1 se asigna la mesa más chica que quepa | Spec 005 |
 | Walk-ins con cola física | Flujo presencial distinto | Spec 005 |
 | Sincronización con Google Calendar | Épica completa (OAuth, tokens, conflictos). En MVP solo `.ics` | Spec 003 |
+| **Reservas de mesa (restaurantes)** | Recortado para llegar antes al MVP funcional de un solo rubro (D-01 revisado 15-sep). El esquema y el core ya lo soportan | Spec 001-b |
 | Ficha clínica | Riesgo legal alto, valor bajo en fase 1 | No planeado |
 | Autoservicio de alta y cobro | Se opera como servicio gestionado en el año 1 (D-04) | Spec 006 |
 | App móvil | La web responsive alcanza | No planeado |
@@ -78,6 +80,10 @@ web**, sin mandarlos a una plataforma de terceros con otra marca.
 
 El núcleo no sabe qué es una clínica ni qué es un restaurante. Sabe de **recursos con
 capacidad** que se ocupan durante una **ventana de tiempo** (P13).
+
+> **v1 construye solo la columna "Clínica / servicios".** La tabla queda completa porque es
+> el contrato del modelo — cuando se active el rubro restaurante en v2, no debería requerir
+> ni una migración ni un cambio en `packages/core`, solo UI y textos nuevos.
 
 | | Clínica / servicios | Restaurante |
 |---|---|---|
@@ -267,13 +273,14 @@ mensajes salgan con su identidad.
 | Q-03 | ¿Qué negocios concretos son los 3 pilotos? Su rubro define qué se prueba primero | La secuencia de tareas |
 | Q-04 | ¿Se cobra a los pilotos o son gratuitos a cambio de datos y testimonio? | Nada técnico |
 | Q-05 | ¿El dominio `superconfirma` está disponible y libre de conflicto de marca en Ecuador? | La marca, no el código |
-| Q-06 | Para restaurantes: ¿el piloto acepta asignación automática de mesa sin poder reordenar el salón en pantalla? | El alcance de HU-03 en modo turno |
+| Q-06 | ~~Para restaurantes: ¿el piloto acepta asignación automática de mesa...~~ — diferida a Spec 001-b, no bloquea v1 | — |
 
 ## 10. Definición de terminado
 
 El MVP está terminado cuando:
 
-1. Un negocio de cada rubro está configurado y recibiendo reservas reales de clientes reales.
+1. Al menos un negocio piloto de citas con profesional está configurado y recibiendo
+   reservas reales de clientes reales.
 2. Todas las historias tienen sus criterios marcados.
 3. Las once reglas invariantes tienen tests automáticos, incluidos los que intentan violarlas
    saltándose la aplicación.

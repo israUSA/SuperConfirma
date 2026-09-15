@@ -436,7 +436,8 @@ correo, y el horario deja de aparecer para los demás.
 - Angular + Tailwind: autenticación, layout, cambio entre negocios (base del Modo Agencia)
 - Configuración completa: local, recursos, servicios, horarios, excepciones
 - Agenda del día por recurso; reserva manual; llegada, completada, inasistencia; bloqueos
-- Vistas específicas por rubro: rejilla de profesionales vs lista de turnos
+- Vista de agenda del rubro v1: rejilla por profesional (la vista de turnos para
+  restaurantes se agrega en v2 sin tocar el core, ver D-01 revisado)
 - Registro de auditoría
 
 **Terminado cuando:** una recepcionista opera un día completo sin ayuda.

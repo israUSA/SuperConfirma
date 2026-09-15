@@ -12,7 +12,7 @@ _Versión 1.0 · 14 de septiembre de 2026_
 
 | Decisión | Valor | Doc |
 |---|---|---|
-| Rubros del MVP | **Citas con profesional + restaurantes**, sobre un núcleo único | D-01 |
+| Rubros del MVP | **Citas con profesional** primero, restaurantes en v2, sobre un núcleo único | D-01 |
 | Mercado inicial | **Ecuador** — USD, sin horario de verano, LOPDP | D-02 |
 | WhatsApp | **Número propio por negocio** vía Embedded Signup | D-03 |
 | Operación | **Servicio gestionado**, con arquitectura de autoservicio desde el día 1 | D-04 |
