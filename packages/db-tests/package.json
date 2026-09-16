@@ -1,0 +1,14 @@
+{
+  "name": "@superconfirma/db-tests",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@superconfirma/core": "*",
+    "postgres": "^3.4.7",
+    "luxon": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.7.1"
+  }
+}

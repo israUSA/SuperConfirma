@@ -4,7 +4,7 @@ Plataforma de **agendamiento y confirmación de citas/reservas** multi-vertical 
 restaurantes, servicios), embebible en landing pages y conectable a otras plataformas
 vía API y webhooks.
 
-> Estado: **fase de investigación y definición**. Nada de código todavía.
+> Estado: **M0 · Cimientos** — esquema, aislamiento y motor de disponibilidad.
 > Metodología: Spec-Driven Development (spec → plan → tasks → implement).
 
 ## Tesis del producto
@@ -31,7 +31,7 @@ Brief publicado (versión leíble y compartible): https://claude.ai/artifact/L44
 
 ## Decisiones tomadas
 
-- **Rubros:** citas con profesional **y** restaurantes, sobre un núcleo único
+- **Rubro v1:** citas con profesional (restaurantes en v2, sobre el mismo núcleo)
 - **Mercado:** Ecuador (USD, sin horario de verano, LOPDP)
 - **WhatsApp:** número propio por negocio
 - **Operación año 1:** servicio gestionado, con arquitectura de autoservicio desde el día 1
@@ -41,9 +41,27 @@ Brief publicado (versión leíble y compartible): https://claude.ai/artifact/L44
 | Doc | Estado |
 |---|---|
 | [Constitución](specs/constitution.md) | v1.0 — principios no negociables |
-| [Spec 001 · MVP de agendamiento](specs/001-mvp-agendamiento/spec.md) | Borrador, pendiente de revisión |
+| [Spec 001 · MVP de agendamiento](specs/001-mvp-agendamiento/spec.md) | Revisada |
+| [Plan 001](specs/001-mvp-agendamiento/plan.md) | Hitos M0–M4 |
+| [Tareas M0](specs/001-mvp-agendamiento/tasks.md) | En curso |
 
-## Próximo paso
+Los prototipos de interfaz viven en pen.dev (13 pantallas revisadas contra la spec).
 
-Revisar la spec 001 → `plan.md` técnico → `tasks.md` → migración inicial y tests de
-aislamiento → código.
+## Desarrollo
+
+Requisitos: Node 22+ y Docker.
+
+```bash
+npm install
+npm run db:start      # Postgres local de Supabase, con migraciones y semilla
+npm test              # packages/core, sin infraestructura
+npm run test:db       # invariantes y aislamiento contra Postgres real
+npm run lint && npm run typecheck
+```
+
+| Carpeta | Contenido |
+|---|---|
+| `packages/core` | Dominio puro: motor de disponibilidad y máquina de estados (P8) |
+| `packages/db-tests` | Tests que atacan la base saltándose la app (P1, P2) |
+| `supabase/migrations` | Esquema SQL versionado, RLS y triggers |
+| `supabase/seed.sql` | Clínica de ejemplo en Quito |

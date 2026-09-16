@@ -9,7 +9,7 @@ Cada decisión lleva su recomendación original y, si ya está cerrada, lo que s
 | # | Decisión | Resuelto | Nota |
 |---|---|---|---|
 | D-01 | Rubro de arranque | **Citas con profesional primero, restaurantes en v2** — revisado el 15-sep | Vuelta a la recomendación original: acorta la ruta al MVP funcional. El esquema y el core ya soportan ambos rubros (P13); solo se recorta qué UI y qué piloto se construyen primero |
-| D-02 | Mercado inicial | **Ecuador** | USD, sin horario de verano, LOPDP. Ojo: Galápagos es `America/Galapagos` (UTC-6) |
+| D-02 | Mercado inicial | **Ecuador** | USD, sin horario de verano, LOPDP. Ojo: Galápagos es `Pacific/Galapagos` (UTC-6) |
 | D-03 | Número de WhatsApp | **Propio por negocio** | Implica Embedded Signup en el MVP + plantillas replicadas y aprobadas por cada WABA + estado "agenda viva, WhatsApp pendiente" (HU-10) |
 | D-04 | Operación año 1 | **Servicio gestionado con arquitectura de autoservicio** | `account` ≠ `business` desde el día 1 |
 

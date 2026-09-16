@@ -108,7 +108,7 @@ capacidad** que se ocupan durante una **ventana de tiempo** (P13).
 pueda recibir reservas el mismo día.
 
 - [ ] Puedo crear cuenta → negocio → local, con zona horaria (`America/Guayaquil` o
-      `America/Galapagos`) y moneda USD
+      `Pacific/Galapagos`) y moneda USD
 - [ ] Puedo crear recursos con nombre, capacidad y horario semanal
 - [ ] Puedo crear servicios con duración, buffers, precio de referencia y qué recursos los prestan
 - [ ] Puedo cargar excepciones: feriados, vacaciones, bloqueos puntuales

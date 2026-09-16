@@ -87,6 +87,24 @@ reinician el reloj, así que el margen importa.
 
 Núcleo único para ambos rubros (P13). SQL real, no pseudocódigo.
 
+> **Desde M0 la fuente de verdad es
+> [`supabase/migrations`](../../supabase/migrations).** Lo de abajo es el borrador original.
+> Diferencias que salieron al implementarlo:
+>
+> - Claves foráneas compuestas `(id, business_id)`: una fila hija no puede apuntar a un
+>   padre de otro negocio. Por eso `service_resource` y `wa_template_status` llevan
+>   `business_id`.
+> - `EXCLUDE` solo aplica a recursos de capacidad 1 (columna `exclusive`); los de
+>   capacidad N los valida el trigger midiendo ocupación simultánea.
+> - La máquina de estados también vive en la base (`booking_transition_allowed`): una
+>   reserva cancelada no se puede reactivar por SQL.
+> - `booking.public_token` → `public_token_hash` (sha256): el token no se guarda en claro.
+> - `service.sensitive` es `true` por defecto (P7: ocultar salvo que el negocio lo habilite).
+> - La ventana de reserva (`min_advance_min`, `max_advance_days`) vive en `location`.
+> - El JWT lleva `app_metadata.business_ids` siempre como arreglo.
+> - Galápagos es `Pacific/Galapagos`; la base rechaza zonas horarias inválidas.
+> - `pg_cron` y `pgmq` se activan cuando algo los use (M1/M3).
+
 ### Jerarquía y tenancy
 
 ```sql
@@ -119,7 +137,7 @@ create table location (
   id            uuid primary key default gen_random_uuid(),
   business_id   uuid not null references business(id),
   name          text not null,
-  timezone      text not null,                  -- 'America/Guayaquil' | 'America/Galapagos'
+  timezone      text not null,                  -- 'America/Guayaquil' | 'Pacific/Galapagos'
   address       text,
   phone_country text not null default 'EC',
   created_at    timestamptz not null default now()
