@@ -1,3 +1,6 @@
+/** R-04: how long a chosen time stays reserved while the customer fills the form. */
+export const HOLD_MINUTES = 10;
+
 export const BOOKING_STATUSES = [
   'hold',
   'pending',

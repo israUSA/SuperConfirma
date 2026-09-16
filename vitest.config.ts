@@ -12,7 +12,7 @@ export default defineConfig({
       {
         test: {
           name: 'db',
-          include: ['packages/db-tests/test/**/*.test.ts'],
+          include: ['packages/db-tests/test/**/*.test.ts', 'packages/api/test/**/*.test.ts'],
           fileParallelism: false,
           testTimeout: 20_000,
         },

@@ -1,4 +1,8 @@
-# Tareas · M0 Cimientos
+# Tareas · Spec 001
+
+Se verifica todo en local con `npm run check` antes de cada commit.
+
+# M0 · Cimientos
 
 _16 de septiembre de 2026 · implementa el hito M0 de [`plan.md`](plan.md)_
 
@@ -84,11 +88,48 @@ datos sembrados, y otro test demuestra que Postgres rechaza el solape.
 
 - [x] T4.1 GitHub Actions: lint + typecheck + tests del core
 - [x] T4.2 Job de base de datos: `supabase db start` + migraciones + tests de BD
-- [ ] T4.3 Marcar ambos jobs como requeridos en la protección de `main` _(lo haces tú
-      en GitHub → Settings → Branches; requiere que el primer run exista)_
+- [~] T4.3 ~~Protección de `main` en GitHub~~ — descartado: se verifica en local con
+      `npm run check` antes de cada commit. CI en GitHub queda como respaldo.
 
 ---
 
-## Siguiente
+# M1 · Reserva pública
 
-`tasks.md` de M1 (API pública, página, widget) cuando M0 esté en verde en CI.
+_Implementa el hito M1 de [`plan.md`](plan.md): HU-03, HU-04, HU-06 y la parte de correo de HU-10._
+
+**Terminado cuando:** una persona reserva desde una landing real en su teléfono, recibe el
+correo, y el horario deja de aparecer para los demás.
+
+## M1a · API pública (`packages/api`)
+
+- [x] A1 Migración 2: `business.allowed_origins`, job de `pg_cron` que vence retenciones
+- [x] A2 Core: normalización de teléfono a E.164 (Ecuador por defecto), `HOLD_MINUTES = 10`
+- [x] A3 Fastify + Zod, logger con PII enmascarada (P7), errores con código estable
+- [x] A4 Acceso a datos con transacciones inyectables (los tests hacen rollback)
+- [x] A5 `GET /v1/public/:slug` — catálogo público y texto de consentimiento vigente
+- [x] A6 `GET /v1/public/:slug/availability` — horarios agrupados por hora
+- [x] A7 `POST /v1/public/:slug/holds` — retiene 10 min; revalida contra el motor; asigna
+      profesional si el cliente eligió "cualquiera"; `409 slot_taken` si alguien ganó la carrera
+- [x] A8 `POST /v1/public/holds/complete` — datos del cliente, consentimiento con el texto
+      que emitió el servidor (P6), `hold → pending`; idempotente
+- [x] A9 `GET /v1/manage/:token`, `POST …/cancel`, `POST …/reschedule` — sin cuenta (P11)
+- [x] A10 Correo de confirmación con `.ics`, detrás de una interfaz de proveedor;
+      registrado en `message_log` con costo (P5)
+- [x] A11 CORS solo para nuestra web (el widget corre en un iframe de nuestro dominio;
+      `allowed_origins` se usa en M1c para `frame-ancestors`) y límite de solicitudes por IP
+- [x] A12 Tests de integración contra Postgres real: flujo completo, carrera por el mismo
+      horario, retención vencida, token ajeno, origen no autorizado
+
+## M1b · Página pública (`packages/web`, Astro + Preact)
+
+- [ ] B1 Página `/:slug` con el flujo de las pantallas 1 y 2 de pen.dev
+- [ ] B2 Estados: retención con contador, retención vencida, horario tomado, confirmación
+- [ ] B3 Página `/gestionar/:token` (pantallas 3a y 3b)
+- [ ] B4 JSON-LD y Open Graph; accesible con teclado y lector de pantalla
+
+## M1c · Widget embebible (`packages/widget`)
+
+- [ ] C1 Loader < 3 KB que crea el iframe: modos inline, modal y botón flotante
+- [ ] C2 Auto-altura por `postMessage` y evento de conversión para el píxel del dueño
+- [ ] C3 Preselección de servicio y profesional desde el código de instalación
+- [ ] C4 Página de prueba que lo incrusta en una landing de ejemplo
